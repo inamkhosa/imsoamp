@@ -1,0 +1,102 @@
+-- *************************************************************************
+-- HSS-NOTIFICATION-MIB:  Notification Management Home subscriber Server 
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- January 2009, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+--
+-- All rights reserved.
+-- 
+-- *************************************************************************
+--
+
+HSS-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Notifications HSS MIB for IMS project
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32,
+    NOTIFICATION-TYPE                   FROM SNMPv2-SMI
+    SnmpAdminString                     FROM SNMP-FRAMEWORK-MIB
+    imsNotification			FROM ADV-IMS-MIB;
+
+
+hssNotifications MODULE-IDENTITY
+
+    LAST-UPDATED "200801150000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"HSS MIB for the Notification Management - Advanced IMS project enterprise MIB tree"
+    REVISION     "200801150000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { imsNotification 2 }
+
+
+--
+-- Top Level Object identifiers for HSS Notifications
+--
+
+hssNotificationPrefix  OBJECT IDENTIFIER
+                                  ::= { hssNotifications 1 }
+hssNotificationObjects OBJECT IDENTIFIER
+                                  ::= { hssNotifications 2 }
+
+--
+--  HSS Notifications
+--
+
+value OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "This OID contains the value associated with trap."
+::= { hssNotificationObjects 1 }
+
+
+severity OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "This OID contains the severity level associated with trap."
+::= { hssNotificationObjects 2 }
+
+
+errorcode OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "This OID contains the error code associated with trap."
+::= { hssNotificationObjects 3 }
+
+
+errordesc OBJECT-TYPE
+    SYNTAX      SnmpAdminString
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "This OID contains the error description associated with trap."
+::= { hssNotificationObjects 4 }
+
+
+hssNotification NOTIFICATION-TYPE
+    OBJECTS     { value, errordesc, severity, errorcode}
+    STATUS      current
+    DESCRIPTION
+        "An hss notifiction type."
+::= { hssNotificationPrefix 1 }
+    
+END

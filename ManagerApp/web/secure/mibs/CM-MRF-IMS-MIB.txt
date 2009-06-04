@@ -1,0 +1,139 @@
+-- *************************************************************************************
+-- CM-MRF-IMS-MIB:  Configuration Management Media Resource Function 
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- Nov 2008, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+--
+-- All rights reserved.
+-- 
+-- *************************************************************************************
+--
+
+CM-MRF-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Configuration Management MRF MIB for IMS project
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32, Counter32	FROM SNMPv2-SMI
+        TruthValue, TestAndIncr              		FROM SNMPv2-TC
+	SnmpAdminString 				FROM SNMP-FRAMEWORK-MIB
+    cManagement 					FROM CM-IMS-MIB;
+
+
+cMngtMRF MODULE-IDENTITY
+    LAST-UPDATED "200811270000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"Configuration Management - MRF - Advanced IMS project enterprise MIB tree"
+    REVISION     "200811280000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { cManagement 3 }
+
+
+--
+-- top level object identifiers for MRF regarding Configuration Management
+--
+
+
+userName	OBJECT-TYPE
+    SYNTAX      SnmpAdminString
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the user name."
+    DEFVAL { "User Name Not Assigned" }
+    ::= { cMngtMRF 1 }
+
+
+silenceThresholdDB	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the silence threshold db."
+    DEFVAL { 1 }
+    ::= { cMngtMRF 2 }
+
+
+jitterBuffer	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the jitter buffer."
+    DEFVAL { 1 }
+    ::= { cMngtMRF 3 }
+
+
+localSdpFile	OBJECT-TYPE
+    SYNTAX      SnmpAdminString
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the local sdp file name."
+    DEFVAL { "User Name Not Assigned" }
+    ::= { cMngtMRF 4 }
+
+
+sipPort	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the sip port."
+    DEFVAL { 1 }
+    ::= { cMngtMRF 5 }
+
+
+frameworkPort	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the frame work port."
+    DEFVAL { 1 }
+    ::= { cMngtMRF 6 }
+
+
+frameworkTracelevel		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the frame work trace level."
+    DEFVAL { 1 }
+    ::= { cMngtMRF 7 }
+
+
+systemLocalIP	OBJECT-TYPE
+    SYNTAX      SnmpAdminString
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the system local IP."
+    DEFVAL { "User Name Not Assigned" }
+    ::= { cMngtMRF 8 }
+
+systemDomainName	OBJECT-TYPE
+    SYNTAX      SnmpAdminString
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the system domain name."
+    DEFVAL { "User Name Not Assigned" }
+    ::= { cMngtMRF 9 }
+
+END

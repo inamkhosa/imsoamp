@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : appconfig.xml
+    Created on : December 16, 2008, 7:02 PM
+    Author     : alamsher
+    Description:
+        Purpose of the document follows.
+-->
+
+<AppConfig>
+    <Name>ICT - Network Manager</Name>
+    <Version>1.0 Beta</Version>
+    <Database>
+        <Host>localhost</Host>
+        <Port>3306</Port>
+        <Schema>oamp</Schema>
+        <Username>root</Username>
+        <Password>rootroot</Password>
+    </Database>
+</AppConfig>

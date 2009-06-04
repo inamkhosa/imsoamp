@@ -1,0 +1,102 @@
+-- *************************************************************************
+-- MRF-NOTIFICATION-MIB:  Notification Management Media Resource Function 
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- January 2009, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+--
+-- All rights reserved.
+-- 
+-- *************************************************************************
+--
+
+MRF-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Notifications MRF MIB for IMS project
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32,
+    NOTIFICATION-TYPE                   FROM SNMPv2-SMI
+    SnmpAdminString                     FROM SNMP-FRAMEWORK-MIB
+    imsNotification			FROM ADV-IMS-MIB;
+
+
+mrfNotifications MODULE-IDENTITY
+
+    LAST-UPDATED "200801150000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"MRF MIB for the Notification Management - Advanced IMS project enterprise MIB tree"
+    REVISION     "200801150000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { imsNotification 3 }
+
+
+--
+-- Top Level Object identifiers for MRF Notifications
+--
+
+mrfNotificationPrefix  OBJECT IDENTIFIER
+                                  ::= { mrfNotifications 1 }
+mrfNotificationObjects OBJECT IDENTIFIER
+                                  ::= { mrfNotifications 2 }
+
+--
+--  MRF Notifications
+--
+
+value OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "This OID contains the value associated with trap."
+::= { mrfNotificationObjects 1 }
+
+
+severity OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "This OID contains the severity level associated with trap."
+::= { mrfNotificationObjects 2 }
+
+
+errorcode OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "This OID contains the error code associated with trap."
+::= { mrfNotificationObjects 3 }
+
+
+errordesc OBJECT-TYPE
+    SYNTAX      SnmpAdminString
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "This OID contains the error description associated with trap."
+::= { mrfNotificationObjects 4 }
+
+
+mrfNotification NOTIFICATION-TYPE
+    OBJECTS     { value, errordesc, severity, errorcode}
+    STATUS      current
+    DESCRIPTION
+        "An mrf notifiction type."
+::= { mrfNotificationPrefix 1 }
+    
+END

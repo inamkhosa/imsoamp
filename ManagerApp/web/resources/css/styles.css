@@ -1,0 +1,137 @@
+/* CSS Document */
+
+body
+{margin:0px; background-color:#f2f2f2;}
+
+table
+{font-family:verdana; font-size:10px;}
+
+.FormTable
+{background-color:#f2f2f2; border:1px solid #454545; color:#454545; font-size:11px;}
+.WarningTable
+{background-color:#FFFFEB; border:1px solid #FFE46B; font-size:11px;}
+.ErrorTable
+{background-color:#FFF4F2; border:1px solid #FED0C8; font-size:11px;}
+.SavedTable
+{background-color:#EFFDEF; border:1px solid #5DC082; font-size:11px;}
+.InfoTable
+{background-color:#EDF7FF; border:1px solid #B4DCFD; font-size:11px;}
+.ListTable
+{background-color:#f2f2f2; border:1px solid #666666; font-size:11px; text-align:center}
+
+.FormTable a:link
+{color:Blue; text-decoration:none; font-size:11px; font-family:verdana;}
+.FormTable a:visited
+{color:Blue; text-decoration:none; font-size:11px; font-family:verdana;}
+.FormTable a:hover
+{color:Blue; text-decoration:underline; font-size:11px; font-family:verdana;}
+
+.ListTable a:link
+{color:Blue; text-decoration:none; font-size:11px; font-family:verdana;}
+.ListTable a:visited
+{color:Blue; text-decoration:none; font-size:11px; font-family:verdana;}
+.ListTable a:hover
+{color:Blue; text-decoration:underline; font-size:11px; font-family:verdana;}
+
+a:link
+{color:Blue; text-decoration:none; font-size:11px; font-family:verdana;}
+a:visited
+{color:Blue; text-decoration:none; font-size:11px; font-family:verdana;}
+a:hover
+{color:Blue; text-decoration:underline; font-size:11px; font-family:verdana;}
+
+.txtBox
+{height:18px; border:1px solid #C2C2C2; width:200px; color:#454545; font-family:verdana; font-size:12px;}
+.txtArea
+{border:1px solid #C2C2C2; color:#454545; font-family:verdana; font-size:12px;}
+.DropDown
+{border:1px solid #C2C2C2; width:200px; color:#454545; font-family:verdana; font-size:12px;}
+.frmButton
+{background:url(../images/buttonbg2.gif) repeat-x; color:#454545; font-family:verdana; font-weight:bold; font-size:11px; 
+	height:25px; border:1px solid #666666;}
+
+.logout:link
+{color:Yellow; text-decoration:none; font-size:11px; font-family:verdana;}
+.logout:visited
+{color:Yellow; text-decoration:none; font-size:11px; font-family:verdana;}
+.logout:hover
+{color:White; text-decoration:underline; font-size:11px; font-family:verdana;}
+
+.topLink:link
+{color:White; text-decoration:none; font-size:11px; font-family:verdana;}
+.topLink:visited
+{color:White; text-decoration:none; font-size:11px; font-family:verdana;}
+.topLink:hover
+{color:#dedbd6; text-decoration:underline; font-size:11px; font-family:verdana;}
+
+.Heading
+{background-color:#454545; color:#FFFFFF; font-size:12px; font-weight:bold; padding-left:8px;}
+.ListHeading
+{background-color:#454545; color:#FFFFFF; font-size:12px; font-weight:bold; text-align:center}
+.ListHeading2
+{font-size:10px; font-weight:bold; text-align:left;}
+.ListHeading3
+{font-size:10px; font-weight:bold; text-align:center;}
+.ListHeading4
+{background-color:#454545; color:#FFFFFF; font-size:10px; font-weight:bold; text-align:center;}
+.Top
+{height:83px; background:url(../images/topbg.gif) repeat-x; color:#FFFFFF; font-size:11px;}
+.TopMenu
+{height:26px; background:url(../images/topmenubg.gif) repeat-x;}
+
+.BlueTabBG
+{background:url(../images/bluetabbg.gif) repeat-x; color:#FFFFFF; font-weight:bold; font-size:12px;}
+.BlueTabBG a:link
+{color:White; text-decoration:none; font-size:12px; font-family:verdana;}
+.BlueTabBG a:visited
+{color:White; text-decoration:none; font-size:12px; font-family:verdana;}
+.BlueTabBG a:hover
+{color:White; text-decoration:underline; font-size:12px; font-family:verdana;}
+
+.GrayTabBG
+{background:url(../images/graytabbg.gif) repeat-x; color:#454545; font-weight:bold; font-size:12px;}
+.GrayTabBG a:link
+{color:#454545; text-decoration:none; font-size:12px; font-family:verdana;}
+.GrayTabBG a:visited
+{color:#454545; text-decoration:none; font-size:12px; font-family:verdana;}
+.GrayTabBG a:hover
+{color:#454545; text-decoration:underline; font-size:12px; font-family:verdana;}
+
+.BoxTobBG
+{background:url(../images/boxtopbg.gif) repeat-x #FFFFFF;}
+.BoxBottomBG
+{background:url(../images/boxbottombg.gif) repeat-x #FFFFFF;}
+.BoxContents
+{background-color:#FFFFFF; border-left:1px solid #454545; border-right:1px solid #454545;}
+
+.TopImage
+{vertical-align:bottom; text-align:center;}
+td.HeightOne
+{height:1px; padding:0px;}
+
+td.Selected
+{background:url(../images/SelectedBG.gif) repeat-x; color:#FFFFFF; text-align:center; font-weight:bold; font-size:12px;}
+td.SelectedEnd
+{background:url(../images/SelectedEnd.gif) no-repeat; width:24px;}
+td.SelectedLast
+{background:url(../images/SelectedLast.gif) no-repeat; width:23px;}
+td.FirstNotSelected
+{background:url(../images/NotSelectedBG.gif) repeat-x; color:#454545; text-align:center; font-weight:bold; font-size:12px; border-left:1px solid #454545;}
+td.NotSelected
+{background:url(../images/NotSelectedBG.gif) repeat-x; color:#454545; text-align:center; font-weight:bold; font-size:12px;}
+td.SelectedLeft
+{background:url(../images/SelectedLeft.gif) no-repeat; width:24px;}
+td.NotSelectedMid
+{background:url(../images/NotSelectedMid.gif) no-repeat; width:24px;}
+td.NotSelectedEnd
+{background:url(../images/NotSelectedEnd.gif) no-repeat; width:23px;}
+.Footer
+{font-size:10px; color:#828282; text-align:center; height:20px;}
+.ListContents {
+	color:#454545;
+	border-width:0px;
+	font-family:Verdana;
+	font-size:11px;
+	vertical-align:top;
+	width:100%;
+}

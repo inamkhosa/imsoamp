@@ -1,0 +1,613 @@
+-- *************************************************************************************
+-- PM-MRF-IMS-MIB:  Performance Management Media Resource Function 
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- July 2008, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+--
+-- All rights reserved.
+-- 
+-- *************************************************************************************
+--
+
+PM-MRF-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Performance Management MRF MIB for IMS project
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32		FROM SNMPv2-SMI
+        TruthValue, TestAndIncr              		FROM SNMPv2-TC
+    pManagement 					FROM PM-IMS-MIB;
+
+
+pMngtMRF MODULE-IDENTITY
+    LAST-UPDATED "200903190000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"MRF MIB for the Performance Management - Advanced IMS project enterprise MIB tree"
+    REVISION     "200903190000Z"
+    DESCRIPTION
+	"Second draft"
+    ::= { pManagement 3 }
+
+
+--
+-- Object identifiers for MRF regarding Performance Management
+--
+
+
+
+inviteAttemptConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for inviteAttemptConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 1 }
+
+inviteFailedConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for inviteFailedConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 2 }
+
+inviteSuccessConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for inviteSuccessConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 3 }
+
+inviteAnsweredConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for inviteAnsweredConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 4 }
+
+infoAttemptConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for infoAttemptConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 5 }
+
+infoFailedConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for infoFailedConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 6 }
+
+infoSuccessConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for infoSuccessConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 7 }
+
+infoAnsweredConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for infoAnsweredConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 8 }
+
+cancelAttemptConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for cancelAttemptConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 9 }
+
+cancelFailedConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for cancelFailedConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 10 }
+
+cancelSuccessConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for cancelSuccessConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 11 }
+
+cancelAnsweredConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for cancelAnsweredConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 12 }
+
+byeAttemptConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for byeAttemptConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 13 }
+
+byeFailedConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for byeFailedConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 14 }
+
+byeSuccessConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for byeSuccessConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 15 }
+
+byeAnsweredConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for byeAnsweredConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 16 }
+
+inviteAttemptNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for inviteAttemptNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 17 }
+
+inviteFailedNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for inviteFailedNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 18 }
+
+inviteSuccessNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for inviteSuccessNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 19 }
+
+inviteAnsweredNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for inviteAnsweredNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 20 }
+
+infoAttemptNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for infoAttemptNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 21 }
+
+infoFailedNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for infoFailedNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 22 }
+
+infoSuccessNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for infoSuccessNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 23 }
+
+infoAnsweredNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for infoAnsweredNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 24 }
+
+cancelAttemptNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for cancelAttemptNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 25 }
+
+cancelFailedNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for cancelFailedNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 26 }
+
+cancelSuccessNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for cancelSuccessNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 27 }
+
+cancelAnsweredNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for cancelAnsweredNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 28 }
+
+byeAttemptNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for byeAttemptNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 29 }
+
+byeFailedNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for byeFailedNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 30 }
+
+byeSuccessNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for byeSuccessNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 31 }
+
+byeAnsweredNonConf		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for byeAnsweredNonConf."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 32 }
+
+incomingRTPPackets		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for incommingRTPPackets."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 33 }
+
+outgoingRTPPackets		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for outgoingRTPPackets."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 34 }
+
+configureConfAttempt		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureConfAttempt."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 35 }
+
+configureConfFailed		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureConfFailed."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 36 }
+
+configureConfSuccess		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureConfSuccess."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 37 }
+
+configureConfAnswered		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureConfAnswered."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 38 }
+
+configureLegAttempt		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureLegAttempt."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 39 }
+
+configureLegFailed		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureLegFailed."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 40 }
+
+
+
+
+
+configureLegSuccess		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureLegSuccess."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 41 }
+
+configureLegAnswered		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureLegAnswered."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 42 }
+
+configureTeamAttempt		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureTeamAttempt."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 43 }
+
+configureTeamFailed		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureTeamFailed."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 44 }
+
+configureTeamSuccess		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureTeamSuccess."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 45 }
+
+configureTeamAnswered		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for configureTeamAnswered."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 46 }
+
+playAttempt		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playAttempt."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 47 }
+
+playFailed		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playFailed."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 48 }
+
+playSuccess		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playSuccess."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 49 }
+
+playAnswered		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playAnswered."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 50 }
+
+playCollectAttempt		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playCollectAttempt."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 51 }
+
+playCollectFailed		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playCollectFailed."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 52 }
+
+playCollectSuccess		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playCollectSuccess."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 53 }
+
+playCollectAnswered		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playCollectAnswered."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 54 }
+
+playRecordAttempt		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playRecordAttempt."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 55 }
+
+playRecordFailed		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playRecordFailed."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 56 }
+
+playRecordSuccess		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playRecordSuccess."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 57 }
+
+playRecordAnswered		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for playRecordAnswered."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 58 }
+
+stopAttempt		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for stopAttempt."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 59 }
+
+stopFailed		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for stopFailed."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 60 }
+
+stopSuccess		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for stopSuccess."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 61 }
+
+stopAnswered		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for stopAnswered."
+    DEFVAL { 0 }
+    ::= { pMngtMRF 62 }
+
+END

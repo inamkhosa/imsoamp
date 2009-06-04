@@ -1,0 +1,467 @@
+-- *************************************************************************************
+-- CM-HSS-IMS-MIB:  Configuration Management Home Subscriber Server  
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- January 2009, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+--
+-- All rights reserved.
+-- 
+-- *************************************************************************************
+--
+
+CM-HSS-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Configuration Management HSS MIB for IMS project
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32 FROM SNMPv2-SMI
+        TruthValue, TestAndIncr              FROM SNMPv2-TC
+    cManagement 			FROM CM-IMS-MIB;
+
+
+cMngtHSS MODULE-IDENTITY
+    LAST-UPDATED "200801270000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"Configuration Management - HSS - Advanced IMS project enterprise MIB tree."
+    REVISION     "200801270000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { cManagement 2 }
+
+
+--
+-- object identifiers for HSS regarding Configuration Management
+--
+
+tableHSS 	OBJECT IDENTIFIER ::= { cMngtHSS 1 }
+cMngtHSSOIDs	OBJECT IDENTIFIER ::= { cMngtHSS 2 }
+
+
+
+--
+--  Basic OIDs Defines
+--
+
+hostName OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the host name."
+    ::= { cMngtHSSOIDs 1 }
+
+hostIPAddress OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the host IP address."
+    ::= { cMngtHSSOIDs 2 }
+
+hostRealm OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the host realm name."
+    ::= { cMngtHSSOIDs 3 }
+
+productName OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the product name."
+    ::= { cMngtHSSOIDs 4 }
+
+logFileName OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the log file name."
+    ::= { cMngtHSSOIDs 5 }
+
+
+logLevel OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the current log level."
+    ::= { cMngtHSSOIDs 6 }
+
+
+tcTimerVal OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the tc timer value."
+    ::= { cMngtHSSOIDs 7 }
+
+vendorID OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the vendor ID."
+    ::= { cMngtHSSOIDs 8 }
+
+
+--
+--  Peer Entries table
+--
+
+peerTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF PeerTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"This table contains a set of row values for peer table."
+    ::= { tableHSS 1 }
+
+peerTableEntry OBJECT-TYPE
+    SYNTAX      PeerTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"A row describing a given data in peer table."
+    INDEX   { peerIndex }
+    ::= {peerTable 1 }
+
+PeerTableEntry ::= SEQUENCE {
+	peerIndex	OCTET STRING,
+	peerIdentity	OCTET STRING,
+	peerRole	OCTET STRING,
+	peerIPAddress	OCTET STRING,
+    	peerPort	Integer32
+}
+
+peerIndex OBJECT-TYPE
+    SYNTAX      OCTET STRING (SIZE(1..32))
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"The index for peer table."
+    ::= { peerTableEntry 1 }
+
+peerIdentity OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the peer identity."
+    ::= { peerTableEntry 2 }
+
+peerRole OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the peer role."
+    ::= { peerTableEntry 3 }
+
+peerIPAddress OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the peer ip address."
+    ::= { peerTableEntry 4 }
+
+
+peerPort OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the peer port."
+    ::= { peerTableEntry 5 }
+
+listenerTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF ListenerTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"This table contains a set of row values for listener table."
+    ::= { tableHSS 2 }
+
+listenerTableEntry OBJECT-TYPE
+    SYNTAX      ListenerTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"A row describing a given data in listener table."
+    INDEX   { listenerIndex }
+    ::= {listenerTable 1 }
+
+ListenerTableEntry ::= SEQUENCE {
+	listenerIndex		OCTET STRING,
+	listenerTransportType	OCTET STRING,
+	listenerIPAddress	OCTET STRING,
+	listenerPort		Integer32,
+    	listenerFQDN		OCTET STRING,
+	listenerIPType		OCTET STRING
+		
+}
+
+listenerIndex OBJECT-TYPE
+    SYNTAX      OCTET STRING (SIZE(1..32))
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"The index for listener table."
+    ::= { listenerTableEntry 1 }
+
+listenerTransportType OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the listener transport type."
+    ::= { listenerTableEntry 2 }
+
+listenerIPAddress OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the listener ip address."
+    ::= { listenerTableEntry 3 }
+
+listenerPort OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the listener port."
+    ::= { listenerTableEntry 4 }
+
+listenerFQDN OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the listener FQDN."
+    ::= { listenerTableEntry 5 }
+
+listenerIPType OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the listener ip type."
+    ::= { listenerTableEntry 6 }
+
+commonModuleTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF CommonModuleTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"This table contains a set of row values for common module table."
+    ::= { tableHSS 3 }
+
+commonModuleTableEntry OBJECT-TYPE
+    SYNTAX      CommonModuleTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"A row describing a given data in common module table."
+    INDEX   { cModuleIndex }
+    ::= {commonModuleTable 1 }
+
+CommonModuleTableEntry ::= SEQUENCE {
+	cModuleIndex		OCTET STRING,
+	cModuleName		OCTET STRING,
+	cModuleFilePath		OCTET STRING,
+	cModuleAbsoluteFlag	OCTET STRING
+		
+}
+
+cModuleIndex OBJECT-TYPE
+    SYNTAX      OCTET STRING (SIZE(1..32))
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"The index for common module table."
+    ::= { commonModuleTableEntry 1 }
+
+cModuleName OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the common module name."
+    ::= { commonModuleTableEntry 2 }
+
+cModuleFilePath OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the common module file path."
+    ::= { commonModuleTableEntry 3 }
+
+cModuleAbsoluteFlag OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the common module absolue flag."
+    ::= { commonModuleTableEntry 4 }
+
+applicationModuleTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF ApplicationModuleTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"This table contains a set of row values for application module table."
+    ::= { tableHSS 4 }
+
+applicationModuleTableEntry OBJECT-TYPE
+    SYNTAX      ApplicationModuleTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"A row describing a given data in application module table."
+    INDEX   { aModuleIndex }
+    ::= {applicationModuleTable 1 }
+
+ApplicationModuleTableEntry ::= SEQUENCE {
+	aModuleIndex			OCTET STRING,
+	aApplicationID			Integer32,
+	aModuleName			OCTET STRING,
+	aModuleFilePath			OCTET STRING,
+	aModuleFilePathAbsoluteFlag	OCTET STRING,
+	aDictionaryFilePathAndName	OCTET STRING,
+	aDictionaryFileAbsolute		OCTET STRING		
+}
+
+aModuleIndex OBJECT-TYPE
+    SYNTAX      OCTET STRING (SIZE(1..32))
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"The index for application module table."
+    ::= { applicationModuleTableEntry 1 }
+
+aApplicationID OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the application ID."
+    ::= { applicationModuleTableEntry 2 }
+
+aModuleName OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the application module name."
+    ::= { applicationModuleTableEntry 3 }
+
+aModuleFilePath OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the application module file path."
+    ::= { applicationModuleTableEntry 4 }
+
+aModuleFilePathAbsoluteFlag OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the application module file path absolute flag."
+    ::= { applicationModuleTableEntry 5 }
+
+aDictionaryFilePathAndName OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the application dictionary file path ."
+    ::= { applicationModuleTableEntry 6 }
+
+aDictionaryFileAbsolute OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the application file path absolute flag."
+    ::= { applicationModuleTableEntry 7 }
+
+realmTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF RealmTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"This table contains a set of row values for realm table."
+    ::= { tableHSS 5 }
+
+realmTableEntry OBJECT-TYPE
+    SYNTAX      RealmTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"A row describing a given data in realm table."
+    INDEX   { realmIndex }
+    ::= {realmTable 1 }
+
+RealmTableEntry ::= SEQUENCE {
+	realmIndex		OCTET STRING,
+	realmApplicationID	Integer32,
+	realmName		OCTET STRING,
+	realmlocalAction	OCTET STRING
+}
+
+realmIndex OBJECT-TYPE
+    SYNTAX      OCTET STRING (SIZE(1..32))
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+	"The index for realm table."
+    ::= { realmTableEntry 1 }
+
+realmApplicationID OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the realm application ID."
+    ::= { realmTableEntry 2 }
+
+realmName OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the realm name."
+    ::= { realmTableEntry 3 }
+
+realmlocalAction OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the realm local action."
+    ::= { realmTableEntry 4 }
+
+END
+

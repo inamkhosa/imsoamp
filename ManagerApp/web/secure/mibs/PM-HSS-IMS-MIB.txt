@@ -1,0 +1,321 @@
+-- *************************************************************************************
+-- PM-HSS-IMS-MIB:  Performance Management Home Subscriber Server  
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- April 2008, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+--
+-- All rights reserved.
+-- 
+-- *************************************************************************************
+--
+
+PM-HSS-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Performance Management HSS MIB for IMS project
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32 FROM SNMPv2-SMI
+        TruthValue, TestAndIncr              FROM SNMPv2-TC
+    pManagement 			FROM PM-IMS-MIB;
+
+
+pMngtHSS MODULE-IDENTITY
+    LAST-UPDATED "200807080000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"Performance Management - HSS - Advanced IMS project enterprise MIB tree."
+    REVISION     "200807080000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { pManagement 2 }
+
+
+--
+-- object identifiers for HSS regarding Performance Management
+--
+
+imsSubscriptionDBU		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for imsSubscriptionDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 1 }
+
+privateUserIdDBU		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for privateUserIdDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 2 }
+
+sipPublicUserIdDBU		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for sipPublicUserIdDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 3 }
+
+telPublicUserIdDBU		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for telPublicUserIdDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 4 }
+
+privateSrvIdDBU		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for privateSrvIdDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 5 }
+
+sipPublicSrvIdDBU		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for sipPublicSrvIdDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 6 }
+
+telPublicSrvIdDBU 	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for telPublicSrvIdDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 7 }
+
+regPublicUserIdRoamingDomainDBU	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for regPublicUserIdRoamingDomainDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 8 }
+
+
+unRegPublicUserIdDBU	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for unRegPublicUserIdDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 9 }
+
+regPrivateUserIdDBU	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for regPrivateUserIdDBU."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 10 }
+
+attemptedUARUR	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for attemptedUARUR."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 11 }
+
+successfulUAAUR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for successfulUAAUR."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 12 }
+
+failedUAAUR	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for failedUAAUR."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 13 }
+
+attemptedSARUR	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for attemptedSARUR."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 14 }
+
+successfulSAAUR 	OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for successfulSAAUR."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 15 }
+
+failedSAAUR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for failedSAAUR."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 16 }
+
+attemptedLIALIQ		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for attemptedLIALIQ."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 17 }
+
+successfulLIALIQ		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for successfulLIALIQ."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 18 }
+
+failedLIALIQ		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for failedLIALIQ."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 19 }
+
+attemptedMARMA		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for attemptedMARMA."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 20 }
+
+successfulMAAMA		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for successfulMAAMA."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 21 }
+
+failedMAAMA		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for failedMAAMA."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 22 }
+
+avgMsgProcessedALL		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for avgMsgProcessedALL."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 23 }
+
+avgMsgProcessedUDR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for avgMsgProcessedUDR."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 24 }
+
+avgMsgProcessedPUR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for avgMsgProcessedPUR."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 25 }
+
+avgMsgSentUDA		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for avgMsgSentUDA."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 26 }
+
+avgMsgSentPUA		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for avgMsgSentPUA."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 27 }
+
+avgTimePerQueryDBMS		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for avgTimePerQueryDBMS."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 28 }
+
+currentMemoryConsumption		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for currentMemoryConsumption."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 29 }
+
+avgMemoryConsumption			OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for avgMemoryConsumption."
+    DEFVAL { 0 }
+    ::= { pMngtHSS 30 }
+
+END
+

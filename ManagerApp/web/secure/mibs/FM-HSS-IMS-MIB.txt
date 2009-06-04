@@ -1,0 +1,185 @@
+-- *************************************************************************************
+-- FM-HSS-IMS-MIB:  Fault Management Home Subscriber Server 
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- February 2009, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+--
+-- All rights reserved.
+-- 
+-- *************************************************************************************
+--
+
+FM-HSS-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Fault Management HSS MIB for IMS project
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32, Counter32	FROM SNMPv2-SMI
+        TruthValue, TestAndIncr              		FROM SNMPv2-TC
+    fManagement 					FROM FM-IMS-MIB;
+
+
+fMngtHSS MODULE-IDENTITY
+    LAST-UPDATED "200901180000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"HSS MIB for the Fault Management - Advanced IMS project enterprise MIB tree"
+    REVISION     "200901180000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { fManagement 2 }
+
+
+--
+-- Object identifiers for HSS regarding Fault Management
+--
+
+listenPortBindFailed		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the lsiten port bind failed."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 1 }
+
+
+downDB		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the down db."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 2 }
+
+
+failedThresholdUAR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the failedThresholdUAR."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 3 }
+
+failedThresholdSAR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the failedThresholdSAR."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 4 }
+
+failedThresholdMAR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the failedThresholdMAR."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 5 }
+
+
+failedThresholdLIR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the failedThresholdLIR."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 6 }
+
+
+validationFailedALL		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the validationFailedALL."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 7 }
+
+validationFailedPUR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the validationFailedPUR."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 8 }
+
+validationFailedPUR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the validationFailedPUR."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 9 }
+
+quriesFailedDBMS		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the quriesFailedDBMS."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 10 }
+
+
+deniedPermissionsAppServerList		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the deniedPermissionsAppServerList."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 11 }
+
+msgSuccessAnswerNotSentALL		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the msgSuccessAnswerNotSentALL."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 12 }
+
+
+
+msgSuccessAnswerNotSentPUR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the msgSuccessAnswerNotSentPUR."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 13 }
+
+
+msgSuccessAnswerNotSentUDR		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"The OID contains the msgSuccessAnswerNotSentUDR."
+    DEFVAL { 0 }
+    ::= { fMngtHSS 14 }
+
+
+
+END

@@ -1,0 +1,50 @@
+-- *************************************************************************************
+-- PM-IMS-MIB:  Performance Management - IP Multimedia Subsystems Management Information
+--
+-- April 2008, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+-- All rights reserved.
+-- 
+-- *************************************************************************************
+--
+
+PM-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Performance Management Top-level MIB for IMS project enterprise MIB tree
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32 FROM SNMPv2-SMI
+        TruthValue                      FROM SNMPv2-TC
+    advIMS                                 FROM ADV-IMS-MIB;
+
+pManagement MODULE-IDENTITY
+    LAST-UPDATED "200804170000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"Top-level infrastructure of the Performance Management - Advanced IMS project enterprise MIB tree"
+    REVISION     "200804170000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { advIMS 3 }
+
+--
+-- top level object identifiers for CSCF/HSS/MRF regarding Performance Management
+--
+
+pMngtCSCF		OBJECT IDENTIFIER ::= { pManagement 1 }
+pMngtHSS		OBJECT IDENTIFIER ::= { pManagement 2 }
+pMngtMRF		OBJECT IDENTIFIER ::= { pManagement 3 }
+
+
+END
+

@@ -1,0 +1,49 @@
+-- ***************************************************************************************
+-- ELEMENT-MANAGER-IMS-MIB:  Element Manager 
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- February 2009, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+-- All rights reserved.
+-- 
+-- ***************************************************************************************
+--
+
+ELEMENT-MANAGER-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Element Manager Top-level MIB for IMS project enterprise MIB tree
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32 FROM SNMPv2-SMI
+        TruthValue                      FROM SNMPv2-TC
+    advIMS                                 FROM ADV-IMS-MIB;
+
+elementManager MODULE-IDENTITY
+    LAST-UPDATED "200801180000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"Top-level infrastructure of the Element Manager - Advanced IMS project enterprise MIB tree"
+    REVISION     "200801180000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { advIMS 4 }
+
+--
+-- top level object identifiers for Element Manager for IMS project
+--
+
+elementMiscOIDs		OBJECT IDENTIFIER ::= { elementManager 1 }
+
+END
+

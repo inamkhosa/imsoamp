@@ -1,0 +1,50 @@
+-- ********************************************************************************
+-- FM-IMS-MIB:  Fault Management - IP Multimedia Subsystems Management Information
+--
+-- April 2008, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+-- All rights reserved.
+-- 
+-- ********************************************************************************
+--
+
+FM-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Fault Management Top-level MIB for IMS project enterprise MIB tree
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32 FROM SNMPv2-SMI
+        TruthValue                      FROM SNMPv2-TC
+    advIMS                                 FROM ADV-IMS-MIB;
+
+fManagement MODULE-IDENTITY
+    LAST-UPDATED "200804170000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"Top-level infrastructure of the Fault Management - Advanced IMS project enterprise MIB tree"
+    REVISION     "200804170000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { advIMS 2 }
+
+--
+-- top level object identifiers for CSCF/HSS/MRF regarding Fault Management
+--
+
+fMngtCSCF		OBJECT IDENTIFIER ::= { fManagement 1 }
+fMngtHSS		OBJECT IDENTIFIER ::= { fManagement 2 }
+fMngtMRF		OBJECT IDENTIFIER ::= { fManagement 3 }
+
+
+END
+

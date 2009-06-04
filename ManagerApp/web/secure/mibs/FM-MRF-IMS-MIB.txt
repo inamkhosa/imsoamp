@@ -1,0 +1,69 @@
+-- *************************************************************************************
+-- FM-MRF-IMS-MIB:  Fault Management Media Resource Function 
+--
+-- IP Multimedia Subsystems Management Information
+--
+-- December 2008, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+--
+-- All rights reserved.
+-- 
+-- *************************************************************************************
+--
+
+FM-MRF-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Fault Management MRF MIB for IMS project
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32, Counter32	FROM SNMPv2-SMI
+        TruthValue, TestAndIncr              		FROM SNMPv2-TC
+    fManagement 					FROM FM-IMS-MIB;
+
+
+fMngtMRF MODULE-IDENTITY
+    LAST-UPDATED "200812300000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"MRF MIB for the Fault Management - Advanced IMS project enterprise MIB tree"
+    REVISION     "200812300000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { fManagement 3 }
+
+
+--
+-- Object identifiers for MRF regarding Fault Management
+--
+
+invitesReceived		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for no of invite messages received."
+    DEFVAL { 0 }
+    ::= { fMngtMRF 1 }
+
+
+infoReceived		OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"This is an object for no of info messages received."
+    DEFVAL { 0 }
+    ::= { fMngtMRF 2 }
+
+
+END

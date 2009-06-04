@@ -1,0 +1,50 @@
+-- *******************************************************************************************
+-- IMS-NOTIFICATION-MIB:  IMS Notifications - IP Multimedia Subsystems Management Information
+--
+-- December 2008, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+-- All rights reserved.
+-- 
+-- *******************************************************************************************
+--
+
+IMS-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Notifications Top-level MIB for IMS project enterprise MIB tree
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32 FROM SNMPv2-SMI
+        TruthValue                      FROM SNMPv2-TC
+    imsNotification                                 FROM ADV-IMS-MIB;
+
+imsNotif MODULE-IDENTITY
+    LAST-UPDATED "200812300000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+		    Advanced IP Multimedia Subsystems
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"Top-level infrastructure of the IMS Notifications - Advanced IMS project enterprise MIB tree"
+    REVISION     "200812300000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { imsNotification 1 }
+
+--
+-- top level object identifiers for CSCF/HSS/MRF regarding Performance Management
+--
+
+imsNotifCSCF		OBJECT IDENTIFIER ::= { imsNotif 1 }		
+imsNotifHSS		OBJECT IDENTIFIER ::= { imsNotif 2 }		
+imsNotifMRF		OBJECT IDENTIFIER ::= { imsNotif 3 }		
+
+
+END
+

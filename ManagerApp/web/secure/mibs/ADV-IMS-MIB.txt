@@ -1,0 +1,58 @@
+-- ***********************************************************************
+-- ADV-IMS-MIB:  Advanced IP Multimedia Subsystems Management Information
+--
+-- April 2008, Muhammad Zeeshan
+--
+-- Copyright (c) 2008-2012 by Adv. IMS, Inc.
+-- All rights reserved.
+-- 
+-- ***********************************************************************
+--
+
+
+ADV-IMS-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Top-level infrastructure of the Advanced IMS project enterprise MIB tree
+--
+
+IMPORTS
+    MODULE-IDENTITY, enterprises FROM SNMPv2-SMI;
+
+advIMS MODULE-IDENTITY
+    LAST-UPDATED "200804170000Z"
+    ORGANIZATION "www.advancedims.com"
+    CONTACT-INFO    
+	 "postal:   Muhammad Zeeshan
+                    House # 299, Street # 67
+                    Islamabad, Pakistan.
+
+          email:    m.zeeshan@advancedims.com"
+    DESCRIPTION
+	"Top-level infrastructure of the Advanced IMS project enterprise MIB tree"
+    REVISION     "200804170000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { enterprises 25000}
+
+
+--
+--  Advanced IMS enterprise-specific management objects
+--
+
+cManagement		OBJECT IDENTIFIER ::= {advIMS 1}
+fManagement		OBJECT IDENTIFIER ::= {advIMS 2}
+pManagement		OBJECT IDENTIFIER ::= {advIMS 3}
+
+elementManager		OBJECT IDENTIFIER ::= {advIMS 4}
+networkManager		OBJECT IDENTIFIER ::= {advIMS 5}
+graphicalUI		OBJECT IDENTIFIER ::= {advIMS 6}
+
+imsNotification		OBJECT IDENTIFIER ::= {advIMS 7}
+
+tableIms		OBJECT IDENTIFIER ::= {advIMS 8}
+
+
+
+END
+
