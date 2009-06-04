@@ -1,0 +1,3 @@
+<NetworkAnalyzer>
+	<EndPointAddress>http://localhost:8084/oampmanager/TrapService</EndPointAddress>
+</NetworkAnalyzer>
